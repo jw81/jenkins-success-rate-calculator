@@ -40,7 +40,9 @@ docker run -e JENKINS_URL=$JENKINS_URL \
 The script will output the success rate for the specified date range:
 
 ```bash
-Success Rate from 10-01-2023 to 10-15-2023: 85.71%
+Total Builds: 10
+Successful Builds: 8
+Success Rate from 11-08-2024 to 11-20-2024: 80.00%
 ```
 
 ## Troubleshooting
