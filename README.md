@@ -28,10 +28,10 @@ docker build -t jenkins-success-rate .
 
 Use the following command to run the Docker container, passing in the required environment variables:
 ```bash
-docker run -e JENKINS_URL="https://your-jenkins-url.com/job-name" \
-           -e COOKIE="your-cookie-value" \
-           -e START_DATE="mm-dd-yyyy" \
-           -e END_DATE="mm-dd-yyyy" \
+docker run -e JENKINS_URL=$JENKINS_URL \
+           -e COOKIE=$COOKIE \
+           -e START_DATE=$START_DATE \
+           -e END_DATE=$END_DATE \
            jenkins-success-rate
 ```
 

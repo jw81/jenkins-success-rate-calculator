@@ -1,6 +1,6 @@
 import os
 import requests
-from datetime import datetime
+from datetime import datetime, timedelta
 
 # Fetch Jenkins URL, cookie, start date, and end date from environment variables
 jenkins_url = os.getenv("JENKINS_URL")
@@ -15,7 +15,7 @@ if not all([jenkins_url, cookie, start_date_str, end_date_str]):
 # Parse start and end dates
 try:
     start_date = datetime.strptime(start_date_str, "%m-%d-%Y")
-    end_date = datetime.strptime(end_date_str, "%m-%d-%Y")
+    end_date = datetime.strptime(end_date_str, "%m-%d-%Y") + timedelta(days=1) - timedelta(seconds=1)
 except ValueError:
     raise ValueError("START_DATE and END_DATE must be in the format mm-dd-yyyy")
 
@@ -75,4 +75,6 @@ if total_builds > 0:
 else:
     success_rate = 0
 
+print(f"Total Builds: {total_builds}")
+print(f"Successful Builds: {successful_builds}")
 print(f"Success Rate from {start_date_str} to {end_date_str}: {success_rate:.2f}%")
